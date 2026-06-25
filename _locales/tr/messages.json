@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Instagram Video Fotoğraf İndirme - IG Downloader"
+  },
+  "appDesc": {
+    "message": "HD kalitesinde Instagram Video İndirme ve Instagram Fotoğraf İndirme için Instagram İndirici. Hızlı Instagram Video ve Fotoğraf İndirme aracı."
+  },
+  "loading": {
+    "message": "Yükleniyor..."
+  },
+  "premiumActive": {
+    "message": "✨ Premium Aktif"
+  },
+  "unlimitedDownloads": {
+    "message": "Sınırsız indirme mevcut!"
+  },
+  "freeVersion": {
+    "message": "Ücretsiz Sürüm"
+  },
+  "downloadsUsed": {
+    "message": "Kullanılan indirmeler: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "Premium'a Yükselt"
+  },
+  "premiumFeaturesTitle": {
+    "message": "Premium Özellikler:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "Sınırsız indirme"
+  },
+  "featurePrioritySupport": {
+    "message": "Öncelikli destek"
+  },
+  "featureAdvancedFeatures": {
+    "message": "Gelişmiş özellikler"
+  },
+  "openInstagram": {
+    "message": "Instagram'ı Aç"
+  },
+  "iconSettingsTitle": {
+    "message": "Simge Ayarları"
+  },
+  "showNewTabIcon": {
+    "message": "\"Yeni sekmede aç\" simgesini göster"
+  },
+  "fileNameSettingsTitle": {
+    "message": "İndirme Dosya Adı Ayarları"
+  },
+  "replaceJpeg": {
+    "message": ".jpeg'i .jpg ile değiştir"
+  },
+  "useShortId": {
+    "message": "Orijinal ID'yi daha kısa değerle değiştir"
+  },
+  "useIndexing": {
+    "message": "Dosya adının sonuna medya indeksini ekle. Kısa ID kullanılamaz."
+  },
+  "filenameFormat": {
+    "message": "Dosya Adı Formatı"
+  },
+  "datetimeFormat": {
+    "message": "Tarih/Saat Formatı"
+  },
+  "videoSettingsTitle": {
+    "message": "Video Ayarları"
+  },
+  "showBrowserControls": {
+    "message": "Tarayıcı Tarafından Sunulan Kontrolleri Göster"
+  },
+  "optionsThankYou": {
+    "message": "Bu uzantıyı kullandığınız için teşekkürler!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "Devam etmek için izinler gerekli"
+  },
+  "permissionsRequiredDesc": {
+    "message": "Bu uzantının düzgün çalışması için aşağıdaki Manifest V3 izinlerine sahip olması gerekir:"
+  },
+  "permissionsAssignRules": {
+    "message": "Ağ isteği kurallarını şuraya ata:"
+  },
+  "enablePermissionsBtn": {
+    "message": "IG Download'un çalışması için gerekli izinleri etkinleştir"
+  },
+  "moreOptionsHint": {
+    "message": "Daha fazla seçenek için lütfen uzantı simgesine tıklayarak açılır pencereyi açın."
+  },
+  "aboutLicense": {
+    "message": "Hakkında / Lisans"
+  },
+  "starProjectSupport": {
+    "message": "Desteğinizi göstermek için lütfen projeye yıldız vermeyi düşünün ❤️."
+  },
+  "copyright": {
+    "message": "Telif Hakkı 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "İzin isteği reddedildi.\nLütfen tekrar deneyin."
+  },
+  "downloadBtnTitle": {
+    "message": "İndir"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "Yeni sekmede aç"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "İndirme sınırına ulaşıldı"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "Günlük 5 dosya indirme sınırına ulaştınız."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "$1/5 ücretsiz indirme kullandınız.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "Sınırsız indirme için Premium'a yükseltin!"
+  },
+  "upgradeBtnText": {
+    "message": "Premium'a Yükselt"
+  },
+  "closeBtnText": {
+    "message": "Kapat"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "Video Kapağını İndir"
+  },
+  "downloadingTitle": {
+    "message": "İndiriliyor..."
+  },
+  "downloadCompletedTitle": {
+    "message": "İndirme tamamlandı!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Reels İndirme Başarısız!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "Gönderi Detayı İndirme Başarısız!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "Gönderi İndirme Başarısız!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "Öne Çıkanları İndirme Başarısız!"
+  }
+}

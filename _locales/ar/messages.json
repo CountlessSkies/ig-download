@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "تحميل صور وفيديو انستقرام - IG Downloader"
+  },
+  "appDesc": {
+    "message": "برنامج تحميل من انستقرام لتحميل فيديو وصور انستقرام بجودة HD. أداة سريعة لتحميل فيديو وصور انستقرام."
+  },
+  "loading": {
+    "message": "جار التحميل..."
+  },
+  "premiumActive": {
+    "message": "✨ بريميوم مفعل"
+  },
+  "unlimitedDownloads": {
+    "message": "تحميلات غير محدودة متاحة!"
+  },
+  "freeVersion": {
+    "message": "نسخة مجانية"
+  },
+  "downloadsUsed": {
+    "message": "التحميلات المستخدمة: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "الترقية إلى بريميوم"
+  },
+  "premiumFeaturesTitle": {
+    "message": "ميزات بريميوم:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "تحميلات غير محدودة"
+  },
+  "featurePrioritySupport": {
+    "message": "دعم ذو أولوية"
+  },
+  "featureAdvancedFeatures": {
+    "message": "ميزات متقدمة"
+  },
+  "openInstagram": {
+    "message": "فتح انستقرام"
+  },
+  "iconSettingsTitle": {
+    "message": "إعدادات الأيقونات"
+  },
+  "showNewTabIcon": {
+    "message": "إظهار أيقونة \"فتح في علامة تبويب جديدة\""
+  },
+  "fileNameSettingsTitle": {
+    "message": "إعدادات اسم الملف"
+  },
+  "replaceJpeg": {
+    "message": "استبدال .jpeg بـ .jpg"
+  },
+  "useShortId": {
+    "message": "استبدال المعرف الأصلي بقيمة أقصر"
+  },
+  "useIndexing": {
+    "message": "إلحاق فهرس الوسائط بنهاية اسم الملف. لا يمكن استخدام المعرف القصير."
+  },
+  "filenameFormat": {
+    "message": "تنسيق اسم الملف"
+  },
+  "datetimeFormat": {
+    "message": "تنسيق التاريخ والوقت"
+  },
+  "videoSettingsTitle": {
+    "message": "إعدادات الفيديو"
+  },
+  "showBrowserControls": {
+    "message": "إظهار عناصر التحكم التي يوفرها المتصفح"
+  },
+  "optionsThankYou": {
+    "message": "شكراً لاستخدامك هذه الإضافة!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "الأذونات مطلوبة للمتابعة"
+  },
+  "permissionsRequiredDesc": {
+    "message": "يجب منح هذه الإضافة أذونات Manifest V3 التالية لتعمل بشكل صحيح:"
+  },
+  "permissionsAssignRules": {
+    "message": "تعيين قواعد طلب الشبكة على"
+  },
+  "enablePermissionsBtn": {
+    "message": "تمكين الأذونات المطلوبة لعمل IG Download"
+  },
+  "moreOptionsHint": {
+    "message": "لمزيد من الخيارات، يرجى فتح النافذة المنبثقة بالنقر فوق أيقونة الإضافة."
+  },
+  "aboutLicense": {
+    "message": "حول / الترخيص"
+  },
+  "starProjectSupport": {
+    "message": "يرجى التفكير في وضع نجمة للمشروع لإظهار دعمك ❤️."
+  },
+  "copyright": {
+    "message": "حقوق النشر 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "تم رفض طلب الإذن.\nيرجى المحاولة مرة أخرى."
+  },
+  "downloadBtnTitle": {
+    "message": "تحميل"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "فتح في علامة تبويب جديدة"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "تم الوصول إلى حد التحميل"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "لقد وصلت إلى حد التحميل اليومي البالغ 5 ملفات."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "لقد استخدمت $1/5 من التحميلات المجانية.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "قم بالترقية إلى Premium لتحميلات غير محدودة!"
+  },
+  "upgradeBtnText": {
+    "message": "الترقية إلى Premium"
+  },
+  "closeBtnText": {
+    "message": "إغلاق"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "تحميل غلاف الفيديو"
+  },
+  "downloadingTitle": {
+    "message": "جار التحميل..."
+  },
+  "downloadCompletedTitle": {
+    "message": "اكتمل التحميل!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "فشل تنزيل Reels!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "فشل تنزيل تفاصيل المنشور!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "فشل تنزيل المنشور!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "فشل تنزيل أبرز القصص!"
+  }
+}

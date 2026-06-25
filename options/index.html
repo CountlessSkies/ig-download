@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>settings</title>
+      <link rel="stylesheet" href="index.css" />
+   </head>
+
+   <body>
+      <h1 data-i18n="optionsThankYou">Thank you for using this extension!</h1>
+
+      <section class="container" id="settings">
+         <div class="warning section permissions-request" id="permissions-request">
+            <h3 data-i18n="permissionsRequiredTitle">Permissions are required to continue</h3>
+            <p data-i18n="permissionsRequiredDesc">This extension must be assigned the following manifest v3 permissions to work properly:</p>
+            <ul>
+               <li><span data-i18n="permissionsAssignRules">Assign network request rules on</span> <code>www.instagram.com</code> & <code>www.threads.net</code></li>
+            </ul>
+            <div class="option">
+               <button id="enable-permissions" class="primary permissions-request" autofocus data-i18n="enablePermissionsBtn">
+                  Enable permissions required for <span style="white-space: nowrap">IG Download</span> to work
+               </button>
+            </div>
+         </div>
+      </section>
+
+      <p data-i18n="moreOptionsHint">For more options, please open the popup by clicking the extension's action icon.</p>
+
+      <section class="container" id="about">
+         <h2 data-i18n="aboutLicense">About / License</h2>
+
+         <p data-i18n="starProjectSupport">Please consider starring the project to show your ❤️ and support.</p>
+
+         <p><strong data-i18n="copyright">Copyright 2024</strong></p>
+      </section>
+      <script src="index.js" type="module"></script>
+   </body>
+</html>

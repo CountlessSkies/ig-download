@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Instagram Video & Foto Download - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Instagram Downloader für Instagram Video Download und Instagram Foto Download in HD. Schnelles Tool zum Herunterladen von Instagram Videos & Fotos."
+  },
+  "loading": {
+    "message": "Laden..."
+  },
+  "premiumActive": {
+    "message": "✨ Premium Aktiv"
+  },
+  "unlimitedDownloads": {
+    "message": "Unbegrenzte Downloads verfügbar!"
+  },
+  "freeVersion": {
+    "message": "Kostenlose Version"
+  },
+  "downloadsUsed": {
+    "message": "Verwendete Downloads: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "Auf Premium upgraden"
+  },
+  "premiumFeaturesTitle": {
+    "message": "Premium-Funktionen:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "Unbegrenzte Downloads"
+  },
+  "featurePrioritySupport": {
+    "message": "Bevorzugter Support"
+  },
+  "featureAdvancedFeatures": {
+    "message": "Erweiterte Funktionen"
+  },
+  "openInstagram": {
+    "message": "Instagram öffnen"
+  },
+  "iconSettingsTitle": {
+    "message": "Icon-Einstellungen"
+  },
+  "showNewTabIcon": {
+    "message": "Symbol \"In neuem Tab öffnen\" anzeigen"
+  },
+  "fileNameSettingsTitle": {
+    "message": "Dateinamen-Einstellungen"
+  },
+  "replaceJpeg": {
+    "message": ".jpeg durch .jpg ersetzen"
+  },
+  "useShortId": {
+    "message": "Original-ID durch kürzeren Wert ersetzen"
+  },
+  "useIndexing": {
+    "message": "Medienindex am Ende des Dateinamens anhängen. Kurze ID kann nicht verwendet werden."
+  },
+  "filenameFormat": {
+    "message": "Dateinamenformat"
+  },
+  "datetimeFormat": {
+    "message": "Datums-/Zeitformat"
+  },
+  "videoSettingsTitle": {
+    "message": "Video-Einstellungen"
+  },
+  "showBrowserControls": {
+    "message": "Vom Browser bereitgestellte Steuerelemente anzeigen"
+  },
+  "optionsThankYou": {
+    "message": "Danke, dass Sie diese Erweiterung nutzen!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "Berechtigungen erforderlich"
+  },
+  "permissionsRequiredDesc": {
+    "message": "Diese Erweiterung benötigt die folgenden Manifest V3-Berechtigungen, um ordnungsgemäß zu funktionieren:"
+  },
+  "permissionsAssignRules": {
+    "message": "Netzwerkanfrageregeln zuweisen auf"
+  },
+  "enablePermissionsBtn": {
+    "message": "Berechtigungen für IG Download aktivieren"
+  },
+  "moreOptionsHint": {
+    "message": "Für weitere Optionen öffnen Sie bitte das Popup, indem Sie auf das Erweiterungssymbol klicken."
+  },
+  "aboutLicense": {
+    "message": "Über / Lizenz"
+  },
+  "starProjectSupport": {
+    "message": "Bitte geben Sie dem Projekt einen Stern für Ihre Unterstützung ❤️."
+  },
+  "copyright": {
+    "message": "Copyright 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "Berechtigungsanfrage wurde abgelehnt.\nBitte versuchen Sie es erneut."
+  },
+  "downloadBtnTitle": {
+    "message": "Herunterladen"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "In neuem Tab öffnen"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "Download-Limit erreicht"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "Sie haben Ihr tägliches Download-Limit von 5 Dateien erreicht."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "Sie haben $1/5 kostenlose Downloads verbraucht.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "Upgrade auf Premium für unbegrenzte Downloads!"
+  },
+  "upgradeBtnText": {
+    "message": "Auf Premium upgraden"
+  },
+  "closeBtnText": {
+    "message": "Schließen"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "Video-Cover herunterladen"
+  },
+  "downloadingTitle": {
+    "message": "Wird heruntergeladen..."
+  },
+  "downloadCompletedTitle": {
+    "message": "Download abgeschlossen!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Reels-Download fehlgeschlagen!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "Download der Beitragsdetails fehlgeschlagen!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "Beitrag herunterladen fehlgeschlagen!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "Highlights herunterladen fehlgeschlagen!"
+  }
+}

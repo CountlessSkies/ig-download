@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Téléchargement Vidéo Photo Instagram - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Téléchargeur Instagram pour télécharger des vidéos et photos Instagram en HD. Outil rapide de téléchargement de vidéos et photos Instagram."
+  },
+  "loading": {
+    "message": "Chargement..."
+  },
+  "premiumActive": {
+    "message": "✨ Premium Actif"
+  },
+  "unlimitedDownloads": {
+    "message": "Téléchargements illimités disponibles !"
+  },
+  "freeVersion": {
+    "message": "Version Gratuite"
+  },
+  "downloadsUsed": {
+    "message": "Téléchargements utilisés : $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "Passer au Premium"
+  },
+  "premiumFeaturesTitle": {
+    "message": "Fonctionnalités Premium :"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "Téléchargements illimités"
+  },
+  "featurePrioritySupport": {
+    "message": "Support prioritaire"
+  },
+  "featureAdvancedFeatures": {
+    "message": "Fonctionnalités avancées"
+  },
+  "openInstagram": {
+    "message": "Ouvrir Instagram"
+  },
+  "iconSettingsTitle": {
+    "message": "Paramètres des icônes"
+  },
+  "showNewTabIcon": {
+    "message": "Afficher l'icône \"Ouvrir dans un nouvel onglet\""
+  },
+  "fileNameSettingsTitle": {
+    "message": "Paramètres du nom de fichier"
+  },
+  "replaceJpeg": {
+    "message": "Remplacer .jpeg par .jpg"
+  },
+  "useShortId": {
+    "message": "Remplacer l'ID original par une valeur plus courte"
+  },
+  "useIndexing": {
+    "message": "Ajouter l'index du média à la fin du nom de fichier. L'ID court ne peut pas être utilisé."
+  },
+  "filenameFormat": {
+    "message": "Format du nom de fichier"
+  },
+  "datetimeFormat": {
+    "message": "Format date/heure"
+  },
+  "videoSettingsTitle": {
+    "message": "Paramètres vidéo"
+  },
+  "showBrowserControls": {
+    "message": "Afficher les contrôles du navigateur"
+  },
+  "optionsThankYou": {
+    "message": "Merci d'utiliser cette extension !"
+  },
+  "permissionsRequiredTitle": {
+    "message": "Permissions requises pour continuer"
+  },
+  "permissionsRequiredDesc": {
+    "message": "Cette extension nécessite les permissions Manifest V3 suivantes pour fonctionner correctement :"
+  },
+  "permissionsAssignRules": {
+    "message": "Attribuer des règles de requête réseau sur"
+  },
+  "enablePermissionsBtn": {
+    "message": "Activer les permissions requises pour IG Download"
+  },
+  "moreOptionsHint": {
+    "message": "Pour plus d'options, veuillez ouvrir la popup en cliquant sur l'icône de l'extension."
+  },
+  "aboutLicense": {
+    "message": "À propos / Licence"
+  },
+  "starProjectSupport": {
+    "message": "Merci d'ajouter une étoile au projet pour votre soutien ❤️."
+  },
+  "copyright": {
+    "message": "Copyright 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "La demande de permission a été refusée.\nVeuillez réessayer."
+  },
+  "downloadBtnTitle": {
+    "message": "Télécharger"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "Ouvrir dans un nouvel onglet"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "Limite de téléchargement atteinte"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "Vous avez atteint votre limite quotidienne de 5 fichiers."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "Vous avez utilisé $1/5 téléchargements gratuits.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "Passez au Premium pour des téléchargements illimités !"
+  },
+  "upgradeBtnText": {
+    "message": "Passer au Premium"
+  },
+  "closeBtnText": {
+    "message": "Fermer"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "Télécharger la couverture vidéo"
+  },
+  "downloadingTitle": {
+    "message": "Téléchargement..."
+  },
+  "downloadCompletedTitle": {
+    "message": "Téléchargement terminé !"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Échec du téléchargement des Reels !"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "Échec du téléchargement des détails de la publication !"
+  },
+  "postDownloadFailedMsg": {
+    "message": "Échec du téléchargement de la publication !"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "Échec du téléchargement des faits marquants !"
+  }
+}

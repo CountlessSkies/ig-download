@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Scarica Video e Foto da Instagram - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Instagram Downloader per scaricare video e foto da Instagram in HD. Strumento veloce per scaricare video e foto da Instagram."
+  },
+  "loading": {
+    "message": "Caricamento..."
+  },
+  "premiumActive": {
+    "message": "✨ Premium Attivo"
+  },
+  "unlimitedDownloads": {
+    "message": "Download illimitati disponibili!"
+  },
+  "freeVersion": {
+    "message": "Versione Gratuita"
+  },
+  "downloadsUsed": {
+    "message": "Download utilizzati: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "Passa a Premium"
+  },
+  "premiumFeaturesTitle": {
+    "message": "Funzionalità Premium:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "Download illimitati"
+  },
+  "featurePrioritySupport": {
+    "message": "Supporto prioritario"
+  },
+  "featureAdvancedFeatures": {
+    "message": "Funzionalità avanzate"
+  },
+  "openInstagram": {
+    "message": "Apri Instagram"
+  },
+  "iconSettingsTitle": {
+    "message": "Impostazioni icone"
+  },
+  "showNewTabIcon": {
+    "message": "Mostra icona \"Apri in nuova scheda\""
+  },
+  "fileNameSettingsTitle": {
+    "message": "Impostazioni nome file"
+  },
+  "replaceJpeg": {
+    "message": "Sostituisci .jpeg con .jpg"
+  },
+  "useShortId": {
+    "message": "Sostituisci ID originale con valore più breve"
+  },
+  "useIndexing": {
+    "message": "Aggiungi l'indice del media alla fine del nome file. ID breve non utilizzabile."
+  },
+  "filenameFormat": {
+    "message": "Formato nome file"
+  },
+  "datetimeFormat": {
+    "message": "Formato data/ora"
+  },
+  "videoSettingsTitle": {
+    "message": "Impostazioni video"
+  },
+  "showBrowserControls": {
+    "message": "Mostra controlli offerti dal browser"
+  },
+  "optionsThankYou": {
+    "message": "Grazie per aver usato questa estensione!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "Permessi richiesti per continuare"
+  },
+  "permissionsRequiredDesc": {
+    "message": "Questa estensione deve avere i seguenti permessi Manifest V3 per funzionare correttamente:"
+  },
+  "permissionsAssignRules": {
+    "message": "Assegna regole richiesta di rete su"
+  },
+  "enablePermissionsBtn": {
+    "message": "Abilita permessi richiesti per IG Download"
+  },
+  "moreOptionsHint": {
+    "message": "Per altre opzioni, apri il popup cliccando sull'icona dell'estensione."
+  },
+  "aboutLicense": {
+    "message": "Info / Licenza"
+  },
+  "starProjectSupport": {
+    "message": "Considera di dare una stella al progetto per il tuo supporto ❤️."
+  },
+  "copyright": {
+    "message": "Copyright 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "La richiesta di permesso è stata rifiutata.\nRiprova."
+  },
+  "downloadBtnTitle": {
+    "message": "Scarica"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "Apri in una nuova scheda"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "Limite di download raggiunto"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "Hai raggiunto il limite giornaliero di 5 file."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "Hai utilizzato $1/5 download gratuiti.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "Passa a Premium per download illimitati!"
+  },
+  "upgradeBtnText": {
+    "message": "Passa a Premium"
+  },
+  "closeBtnText": {
+    "message": "Chiudi"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "Scarica copertina video"
+  },
+  "downloadingTitle": {
+    "message": "Scaricamento..."
+  },
+  "downloadCompletedTitle": {
+    "message": "Download completato!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Download Reels fallito!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "Download dettagli post fallito!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "Download post fallito!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "Download storie in evidenza fallito!"
+  }
+}

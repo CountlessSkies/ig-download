@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Instagram 비디오 사진 다운로드 - IG Downloader"
+  },
+  "appDesc": {
+    "message": "HD 화질의 Instagram 비디오 및 사진 다운로드를 위한 Instagram 다운로더. 빠른 Instagram 비디오 및 사진 다운로드 도구."
+  },
+  "loading": {
+    "message": "로딩 중..."
+  },
+  "premiumActive": {
+    "message": "✨ 프리미엄 활성화됨"
+  },
+  "unlimitedDownloads": {
+    "message": "무제한 다운로드 가능!"
+  },
+  "freeVersion": {
+    "message": "무료 버전"
+  },
+  "downloadsUsed": {
+    "message": "사용된 다운로드: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "프리미엄으로 업그레이드"
+  },
+  "premiumFeaturesTitle": {
+    "message": "프리미엄 기능:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "무제한 다운로드"
+  },
+  "featurePrioritySupport": {
+    "message": "우선 지원"
+  },
+  "featureAdvancedFeatures": {
+    "message": "고급 기능"
+  },
+  "openInstagram": {
+    "message": "Instagram 열기"
+  },
+  "iconSettingsTitle": {
+    "message": "아이콘 설정"
+  },
+  "showNewTabIcon": {
+    "message": "\"새 탭에서 열기\" 아이콘 표시"
+  },
+  "fileNameSettingsTitle": {
+    "message": "다운로드 파일 이름 설정"
+  },
+  "replaceJpeg": {
+    "message": ".jpeg를 .jpg로 교체"
+  },
+  "useShortId": {
+    "message": "원래 ID를 짧은 값으로 교체"
+  },
+  "useIndexing": {
+    "message": "파일 이름 끝에 미디어 인덱스를 추가합니다. 짧은 ID는 사용할 수 없습니다."
+  },
+  "filenameFormat": {
+    "message": "파일 이름 형식"
+  },
+  "datetimeFormat": {
+    "message": "날짜/시간 형식"
+  },
+  "videoSettingsTitle": {
+    "message": "비디오 설정"
+  },
+  "showBrowserControls": {
+    "message": "브라우저 제공 컨트롤 표시"
+  },
+  "optionsThankYou": {
+    "message": "이 확장 프로그램을 사용해 주셔서 감사합니다!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "계속하려면 권한이 필요합니다"
+  },
+  "permissionsRequiredDesc": {
+    "message": "이 확장 프로그램이 제대로 작동하려면 다음 Manifest V3 권한이 필요합니다."
+  },
+  "permissionsAssignRules": {
+    "message": "다음에서 네트워크 요청 규칙 할당:"
+  },
+  "enablePermissionsBtn": {
+    "message": "IG Download 작동에 필요한 권한 활성화"
+  },
+  "moreOptionsHint": {
+    "message": "더 많은 옵션을 보려면 확장 프로그램 아이콘을 클릭하여 팝업을 여세요."
+  },
+  "aboutLicense": {
+    "message": "정보 / 라이선스"
+  },
+  "starProjectSupport": {
+    "message": "프로젝트에 별을 추가하여 지원해 주세요 ❤️."
+  },
+  "copyright": {
+    "message": "Copyright 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "권한 요청이 거부되었습니다.\n다시 시도해 주세요."
+  },
+  "downloadBtnTitle": {
+    "message": "다운로드"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "새 탭에서 열기"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "다운로드 제한 도달"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "일일 다운로드 제한인 5개 파일에 도달했습니다."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "무료 다운로드 $1/5 회를 사용했습니다.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "무제한 다운로드를 위해 프리미엄으로 업그레이드하세요!"
+  },
+  "upgradeBtnText": {
+    "message": "프리미엄으로 업그레이드"
+  },
+  "closeBtnText": {
+    "message": "닫기"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "비디오 커버 다운로드"
+  },
+  "downloadingTitle": {
+    "message": "다운로드 중..."
+  },
+  "downloadCompletedTitle": {
+    "message": "다운로드 완료!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "릴스 다운로드 실패!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "게시물 세부 정보 다운로드 실패!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "게시물 다운로드 실패!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "하이라이트 다운로드 실패!"
+  }
+}

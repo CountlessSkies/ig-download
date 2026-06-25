@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/inject.ts"],
+  "sourcesContent": ["const script = document.createElement('script');\nscript.setAttribute('type', 'text/javascript');\nscript.setAttribute('src', chrome.runtime.getURL('xhr.js'));\nscript.onload = () => {\n   script.remove();\n};\n(document.head || document.documentElement).appendChild(script);\n"],
+  "mappings": "mBAAA,IAAM,OAAS,SAAS,cAAc,QAAQ,EAC9C,OAAO,aAAa,OAAQ,iBAAiB,EAC7C,OAAO,aAAa,MAAO,OAAO,QAAQ,OAAO,QAAQ,CAAC,EAC1D,OAAO,OAAS,IAAM,CACnB,OAAO,OAAO,CACjB,GACC,SAAS,MAAQ,SAAS,iBAAiB,YAAY,MAAM",
+  "names": []
+}

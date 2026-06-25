@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Скачать видео и фото из Instagram - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Загрузчик из Instagram для скачивания видео и фото из Instagram в HD. Быстрый инструмент для скачивания видео и фото из Instagram."
+  },
+  "loading": {
+    "message": "Загрузка..."
+  },
+  "premiumActive": {
+    "message": "✨ Премиум активен"
+  },
+  "unlimitedDownloads": {
+    "message": "Доступно неограниченное скачивание!"
+  },
+  "freeVersion": {
+    "message": "Бесплатная версия"
+  },
+  "downloadsUsed": {
+    "message": "Использовано скачиваний: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "Обновить до Премиум"
+  },
+  "premiumFeaturesTitle": {
+    "message": "Премиум функции:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "Неограниченные скачивания"
+  },
+  "featurePrioritySupport": {
+    "message": "Приоритетная поддержка"
+  },
+  "featureAdvancedFeatures": {
+    "message": "Расширенные функции"
+  },
+  "openInstagram": {
+    "message": "Открыть Instagram"
+  },
+  "iconSettingsTitle": {
+    "message": "Настройки иконок"
+  },
+  "showNewTabIcon": {
+    "message": "Показывать иконку «Открыть в новой вкладке»"
+  },
+  "fileNameSettingsTitle": {
+    "message": "Настройки имени файла"
+  },
+  "replaceJpeg": {
+    "message": "Заменять .jpeg на .jpg"
+  },
+  "useShortId": {
+    "message": "Заменять оригинальный ID на короткий"
+  },
+  "useIndexing": {
+    "message": "Добавлять индекс медиа в конец имени файла. Короткий ID не может быть использован."
+  },
+  "filenameFormat": {
+    "message": "Формат имени файла"
+  },
+  "datetimeFormat": {
+    "message": "Формат даты и времени"
+  },
+  "videoSettingsTitle": {
+    "message": "Настройки видео"
+  },
+  "showBrowserControls": {
+    "message": "Показывать элементы управления браузера"
+  },
+  "optionsThankYou": {
+    "message": "Спасибо за использование этого расширения!"
+  },
+  "permissionsRequiredTitle": {
+    "message": "Для продолжения требуются разрешения"
+  },
+  "permissionsRequiredDesc": {
+    "message": "Этому расширению требуются следующие разрешения Manifest V3 для правильной работы:"
+  },
+  "permissionsAssignRules": {
+    "message": "Назначить правила сетевых запросов на"
+  },
+  "enablePermissionsBtn": {
+    "message": "Включить разрешения для IG Download"
+  },
+  "moreOptionsHint": {
+    "message": "Для дополнительных опций откройте всплывающее окно, нажав на иконку расширения."
+  },
+  "aboutLicense": {
+    "message": "О программе / Лицензия"
+  },
+  "starProjectSupport": {
+    "message": "Пожалуйста, поставьте звезду проекту, чтобы поддержать нас ❤️."
+  },
+  "copyright": {
+    "message": "Авторское право 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "Запрос разрешения был отклонен.\nПожалуйста, попробуйте снова."
+  },
+  "downloadBtnTitle": {
+    "message": "Скачать"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "Открыть в новой вкладке"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "Предел загрузок достигнут"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "Вы достигли дневного лимита загрузок в 5 файлов."
+  },
+  "downloadLimitUsedMsg": {
+    "message": "Вы использовали $1/5 бесплатных загрузок.",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "Обновитесь до Premium для безлимитных загрузок!"
+  },
+  "upgradeBtnText": {
+    "message": "Обновить до Premium"
+  },
+  "closeBtnText": {
+    "message": "Закрыть"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "Скачать обложку видео"
+  },
+  "downloadingTitle": {
+    "message": "Загрузка..."
+  },
+  "downloadCompletedTitle": {
+    "message": "Загрузка завершена!"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Ошибка загрузки Reels!"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "Ошибка загрузки деталей поста!"
+  },
+  "postDownloadFailedMsg": {
+    "message": "Ошибка загрузки поста!"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "Ошибка загрузки актуального!"
+  }
+}

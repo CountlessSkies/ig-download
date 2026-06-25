@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Instagram 動画・画像ダウンロード - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Instagram 動画ダウンロードと Instagram 画像ダウンロードのための Instagram ダウンローダー (HD対応)。高速な Instagram 動画・画像ダウンロードツール。"
+  },
+  "loading": {
+    "message": "読み込み中..."
+  },
+  "premiumActive": {
+    "message": "✨ プレミアム有効"
+  },
+  "unlimitedDownloads": {
+    "message": "無制限のダウンロードが利用可能です！"
+  },
+  "freeVersion": {
+    "message": "無料版"
+  },
+  "downloadsUsed": {
+    "message": "ダウンロード済み: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "プレミアムにアップグレード"
+  },
+  "premiumFeaturesTitle": {
+    "message": "プレミアム機能:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "無制限ダウンロード"
+  },
+  "featurePrioritySupport": {
+    "message": "優先サポート"
+  },
+  "featureAdvancedFeatures": {
+    "message": "高度な機能"
+  },
+  "openInstagram": {
+    "message": "Instagramを開く"
+  },
+  "iconSettingsTitle": {
+    "message": "アイコン設定"
+  },
+  "showNewTabIcon": {
+    "message": "「新しいタブで開く」アイコンを表示"
+  },
+  "fileNameSettingsTitle": {
+    "message": "ダウンロードファイル名設定"
+  },
+  "replaceJpeg": {
+    "message": ".jpeg を .jpg に置換"
+  },
+  "useShortId": {
+    "message": "元のIDを短い値に置換"
+  },
+  "useIndexing": {
+    "message": "ファイル名の末尾にメディアのインデックスを追加します。短いIDは使用できません。"
+  },
+  "filenameFormat": {
+    "message": "ファイル名形式"
+  },
+  "datetimeFormat": {
+    "message": "日時形式"
+  },
+  "videoSettingsTitle": {
+    "message": "動画設定"
+  },
+  "showBrowserControls": {
+    "message": "ブラウザ提供のコントロールを表示"
+  },
+  "optionsThankYou": {
+    "message": "この拡張機能をご利用いただきありがとうございます！"
+  },
+  "permissionsRequiredTitle": {
+    "message": "続行するには権限が必要です"
+  },
+  "permissionsRequiredDesc": {
+    "message": "この拡張機能が正しく動作するには、次のManifest V3権限が必要です："
+  },
+  "permissionsAssignRules": {
+    "message": "ネットワークリクエストルールの割り当て先："
+  },
+  "enablePermissionsBtn": {
+    "message": "IG Download の動作に必要な権限を有効にする"
+  },
+  "moreOptionsHint": {
+    "message": "そのほかのオプションについては、拡張機能のアイコンをクリックしてポップアップを開いてください。"
+  },
+  "aboutLicense": {
+    "message": "概要 / ライセンス"
+  },
+  "starProjectSupport": {
+    "message": "プロジェクトへのスター追加でサポートをお願いします ❤️。"
+  },
+  "copyright": {
+    "message": "Copyright 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "権限リクエストが拒否されました。\nもう一度お試しください。"
+  },
+  "downloadBtnTitle": {
+    "message": "ダウンロード"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "新しいタブで開く"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "ダウンロード制限に達しました"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "1日のダウンロード制限（5ファイル）に達しました。"
+  },
+  "downloadLimitUsedMsg": {
+    "message": "無料ダウンロードを $1/5 回使用しました。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "プレミアムにアップグレードして無制限にダウンロード！"
+  },
+  "upgradeBtnText": {
+    "message": "プレミアムにアップグレード"
+  },
+  "closeBtnText": {
+    "message": "閉じる"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "動画カバーをダウンロード"
+  },
+  "downloadingTitle": {
+    "message": "ダウンロード中..."
+  },
+  "downloadCompletedTitle": {
+    "message": "ダウンロード完了！"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Reelsのダウンロードに失敗しました！"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "投稿詳細のダウンロードに失敗しました！"
+  },
+  "postDownloadFailedMsg": {
+    "message": "投稿のダウンロードに失敗しました！"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "ハイライトのダウンロードに失敗しました！"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "appName": {
+    "message": "Instagram 视频图片下载 - IG Downloader"
+  },
+  "appDesc": {
+    "message": "Instagram 下载器，用于高清 Instagram 视频下载和 Instagram 图片下载。快速 Instagram 视频和图片下载工具。"
+  },
+  "loading": {
+    "message": "加载中..."
+  },
+  "premiumActive": {
+    "message": "✨ 高级版已激活"
+  },
+  "unlimitedDownloads": {
+    "message": "无限下载可用！"
+  },
+  "freeVersion": {
+    "message": "免费版"
+  },
+  "downloadsUsed": {
+    "message": "已用下载次数: $COUNT$/5",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremium": {
+    "message": "升级到高级版"
+  },
+  "premiumFeaturesTitle": {
+    "message": "高级版功能:"
+  },
+  "featureUnlimitedDownloads": {
+    "message": "无限下载"
+  },
+  "featurePrioritySupport": {
+    "message": "优先支持"
+  },
+  "featureAdvancedFeatures": {
+    "message": "高级功能"
+  },
+  "openInstagram": {
+    "message": "打开 Instagram"
+  },
+  "iconSettingsTitle": {
+    "message": "图标设置"
+  },
+  "showNewTabIcon": {
+    "message": "显示“在新标签页打开”图标"
+  },
+  "fileNameSettingsTitle": {
+    "message": "下载文件名设置"
+  },
+  "replaceJpeg": {
+    "message": "将 .jpeg 替换为 .jpg"
+  },
+  "useShortId": {
+    "message": "使用短 ID 替换原始 ID"
+  },
+  "useIndexing": {
+    "message": "在文件名末尾附加媒体索引。短 ID 无法使用。"
+  },
+  "filenameFormat": {
+    "message": "文件名格式"
+  },
+  "datetimeFormat": {
+    "message": "日期时间格式"
+  },
+  "videoSettingsTitle": {
+    "message": "视频设置"
+  },
+  "showBrowserControls": {
+    "message": "显示浏览器提供的控件"
+  },
+  "optionsThankYou": {
+    "message": "感谢使用此扩展！"
+  },
+  "permissionsRequiredTitle": {
+    "message": "需要权限才能继续"
+  },
+  "permissionsRequiredDesc": {
+    "message": "此扩展必须获得以下 Manifest V3 权限才能正常工作："
+  },
+  "permissionsAssignRules": {
+    "message": "分配网络请求规则于"
+  },
+  "enablePermissionsBtn": {
+    "message": "启用 IG Download 所需的权限"
+  },
+  "moreOptionsHint": {
+    "message": "如需更多选项，请点击扩展图标打开弹窗。"
+  },
+  "aboutLicense": {
+    "message": "关于 / 许可"
+  },
+  "starProjectSupport": {
+    "message": "请考虑给项目加星以示支持 ❤️。"
+  },
+  "copyright": {
+    "message": "版权所有 2024"
+  },
+  "permissionDeclinedMsg": {
+    "message": "权限请求被拒绝。\n请重试。"
+  },
+  "downloadBtnTitle": {
+    "message": "下载"
+  },
+  "openInNewTabBtnTitle": {
+    "message": "在新标签页打开"
+  },
+  "downloadLimitReachedTitle": {
+    "message": "达到下载限制"
+  },
+  "downloadLimitReachedMsg": {
+    "message": "您已达到每日5个文件的下载限制。"
+  },
+  "downloadLimitUsedMsg": {
+    "message": "您已使用 $1/5 次免费下载。",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "upgradeToPremiumMsg": {
+    "message": "升级到高级版以获得无限下载！"
+  },
+  "upgradeBtnText": {
+    "message": "升级到高级版"
+  },
+  "closeBtnText": {
+    "message": "关闭"
+  },
+  "downloadVideoCoverTitle": {
+    "message": "下载视频封面"
+  },
+  "downloadingTitle": {
+    "message": "下载中..."
+  },
+  "downloadCompletedTitle": {
+    "message": "下载完成！"
+  },
+  "reelsDownloadFailedMsg": {
+    "message": "Reels 下载失败！"
+  },
+  "postDetailDownloadFailedMsg": {
+    "message": "帖子详情下载失败！"
+  },
+  "postDownloadFailedMsg": {
+    "message": "帖子下载失败！"
+  },
+  "highlightsDownloadFailedMsg": {
+    "message": "精选下载失败！"
+  }
+}
