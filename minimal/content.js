@@ -47,13 +47,29 @@
     return null;
   }
 
+  // Instagram shortcodes are base64url-encoded numeric media IDs. This avoids
+  // relying solely on the HTML marker that Instagram frequently changes.
+  function mediaIdFromShortcode(shortcode) {
+    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+    let id = 0n;
+    for (const character of shortcode) {
+      const value = alphabet.indexOf(character);
+      if (value < 0) return null;
+      id = id * 64n + BigInt(value);
+    }
+    return id.toString();
+  }
+
   async function findMediaId(code, route) {
     const key = `${route}:${code}`;
     if (!mediaIdCache.has(key)) {
-      const html = await (await fetch(`https://www.instagram.com/${route}/${code}/`)).text();
+      const postUrl = `https://www.instagram.com/${route}/${code}/`;
+      const response = await fetch(postUrl);
+      const html = await response.text();
       const match = html.match(/instagram:\/\/media\?id=(\d+)|["' ]media_id["' ]:["' ](\d+)/);
-      if (!match) return null;
-      mediaIdCache.set(key, match[1] || match[2]);
+      const mediaId = match?.[1] || match?.[2] || mediaIdFromShortcode(code);
+      if (!mediaId) return null;
+      mediaIdCache.set(key, mediaId);
     }
     return mediaIdCache.get(key);
   }
@@ -62,7 +78,8 @@
     if (mediaInfoCache.has(id)) return mediaInfoCache.get(id);
     const appId = findAppId();
     if (!appId) throw new Error('Could not find Instagram app id');
-    const response = await fetch(`https://i.instagram.com/api/v1/media/${id}/info/`, {
+    const apiUrl = `https://i.instagram.com/api/v1/media/${id}/info/`;
+    const response = await fetch(apiUrl, {
       credentials: 'include',
       headers: { Accept: '*/*', 'X-IG-App-ID': appId },
     });
@@ -81,16 +98,29 @@
     }, null);
   }
 
-  function toDownload(item, parent) {
+  function filenameFromUrl(url) {
+    try {
+      const name = new URL(url).pathname.split('/').pop();
+      return name ? decodeURIComponent(name) : '';
+    } catch (_) {
+      return '';
+    }
+  }
+
+  function toDownload(item, parent, renderedUrl = '') {
     const video = largestCandidate(item.video_versions);
     const image = largestCandidate(item.image_versions2?.candidates);
     const source = video || image;
     if (!source?.url) throw new Error('No downloadable media URL');
+    const id = item.id || item.pk || parent?.id || parent?.pk || 'instagram_media';
     return {
       url: source.url,
       type: video ? 'video' : 'image',
       username: item.owner?.username || parent?.owner?.username || parent?.user?.username || 'instagram',
-      id: item.id || item.pk || parent?.id || parent?.pk || 'instagram_media',
+      id,
+      // Match the original extension: its video/reel/story filename is the
+      // basename of the resolved video_versions URL, not the media ID.
+      sourceName: video ? filenameFromUrl(source.url) : filenameFromUrl(renderedUrl) || filenameFromUrl(source.url),
     };
   }
 
@@ -172,7 +202,7 @@
     if (!id) throw new Error('Could not resolve Instagram media id');
     const parent = await mediaInfo(id);
     const item = parent.carousel_media ? parent.carousel_media[carouselIndex(article, parent)] || parent.carousel_media[0] : parent;
-    return toDownload(item, parent);
+    return toDownload(item, parent, visibleMediaUrl(article));
   }
 
   function currentStoryElement() {
@@ -184,20 +214,21 @@
     const username = parts[1] || 'instagram';
     const storyId = parts[2];
     if (storyId && /^\d+$/.test(storyId)) {
-      try { return toDownload(await mediaInfo(storyId)); } catch (_) { /* DOM fallback below */ }
+      try { return toDownload(await mediaInfo(storyId), null, currentStoryElement()?.currentSrc || currentStoryElement()?.src); } catch (_) { /* DOM fallback below */ }
     }
     const element = currentStoryElement();
     const url = element?.currentSrc || element?.src;
     if (!url) throw new Error('Could not find current story media');
     const type = element instanceof HTMLVideoElement ? 'video' : 'image';
-    const basename = new URL(url).pathname.split('/').pop()?.replace(/\.[a-z0-9]{2,5}$/i, '');
-    return { url, type, username, id: storyId || basename || 'story' };
+    const sourceName = filenameFromUrl(url);
+    return { url, type, username, id: storyId || sourceName || 'story', sourceName };
   }
 
   function makeFilename(media) {
     const username = String(media.username).replace(/[\\/:*?"<>|]/g, '_');
-    const id = String(media.id).replace(/[\\/:*?"<>|]/g, '_');
-    return `${username}_${id}.${media.type === 'video' ? 'mp4' : 'jpg'}`;
+    let sourceName = String(media.sourceName || filenameFromUrl(media.url) || media.id).replace(/[\\/:*?"<>|]/g, '_');
+    if (!/\.[a-z0-9]{2,5}$/i.test(sourceName)) sourceName += media.type === 'video' ? '.mp4' : '.jpg';
+    return `${username}_${sourceName}`;
   }
 
   async function save(media) {
@@ -319,6 +350,7 @@
     event.preventDefault();
     startDownload(button);
   });
+
 
   setInterval(scan, 1200);
   scan();
