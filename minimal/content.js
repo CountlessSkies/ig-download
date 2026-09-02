@@ -251,7 +251,7 @@
   }
 
   function setButtonState(button, state) {
-    const colors = { idle: '#0095f6', loading: '#f59e0b', done: '#22a06b', failed: '#ed4956' };
+    const colors = { idle: !isFeedPage() || button.dataset.hotkeyTarget === 'true' ? '#0095f6' : '#fff', loading: '#f59e0b', done: '#22a06b', failed: '#ed4956' };
     button.style.backgroundColor = 'transparent';
     button.style.color = colors[state];
     button.style.transform = state === 'loading' ? 'scale(.92)' : 'scale(1)';
@@ -287,6 +287,20 @@
       return Math.abs(leftCenter - viewportCenter) - Math.abs(rightCenter - viewportCenter);
     });
     return candidates[0] || null;
+  }
+
+  function isFeedPage() {
+    return location.pathname === '/' || location.pathname === '/feed/';
+  }
+
+  function refreshHotkeyIndicator() {
+    if (!isFeedPage()) return;
+    const target = nearestVisibleButton();
+    document.querySelectorAll(`.${CLASS}`).forEach((button) => {
+      const isTarget = button === target;
+      button.dataset.hotkeyTarget = String(isTarget);
+      if (!button.dataset.busy) button.style.color = isTarget ? '#0095f6' : '#fff';
+    });
   }
 
   function isTypingTarget(target) {
@@ -341,6 +355,7 @@
     scanPosts();
     scanReels();
     scanStory();
+    refreshHotkeyIndicator();
   }
 
   document.addEventListener('keydown', (event) => {
@@ -350,6 +365,9 @@
     event.preventDefault();
     startDownload(button);
   });
+
+  window.addEventListener('scroll', refreshHotkeyIndicator, { passive: true });
+  window.addEventListener('resize', refreshHotkeyIndicator, { passive: true });
 
 
   setInterval(scan, 1200);
