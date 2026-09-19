@@ -149,24 +149,64 @@
     try { return new URL(url).pathname; } catch (_) { return ''; }
   }
 
-  function visibleMediaUrl(article) {
+  function visibleMediaSources(article) {
     const scope = article && typeof article.querySelectorAll === 'function' ? article : document;
     const articleRect = typeof scope.getBoundingClientRect === 'function'
       ? scope.getBoundingClientRect()
       : { left: 0, right: window.innerWidth, top: 0, bottom: window.innerHeight };
-    let best = null;
-    let bestArea = 0;
+    const media = [];
     scope.querySelectorAll('img, video').forEach((element) => {
       const rect = element.getBoundingClientRect();
       const width = Math.max(0, Math.min(rect.right, articleRect.right) - Math.max(rect.left, articleRect.left));
       const height = Math.max(0, Math.min(rect.bottom, articleRect.bottom) - Math.max(rect.top, articleRect.top));
       const area = width * height;
-      if (area > bestArea) {
-        bestArea = area;
-        best = element.currentSrc || element.src || '';
+      if (!area) return;
+      // IG serves feed videos through a blob: currentSrc. Its poster remains a
+      // real CDN URL and identifies the corresponding carousel_media item.
+      const urls = element instanceof HTMLVideoElement
+        ? [element.poster, element.currentSrc, element.src]
+        : [element.currentSrc, element.src];
+      media.push({ area, urls: urls.filter((url) => url && !url.startsWith('blob:')) });
+    });
+    return media.sort((left, right) => right.area - left.area);
+  }
+
+  function visibleMediaUrl(article) {
+    return visibleMediaSources(article)[0]?.urls[0] || '';
+  }
+
+  function carouselIndexFromGeometry(article) {
+    if (!(article instanceof Element)) return -1;
+    const articleRect = article.getBoundingClientRect();
+    const centerX = articleRect.left + articleRect.width / 2;
+    // Instagram's feed keeps adjacent slides mounted. Their <li> transforms
+    // move only the active slide to the article centre, independent of media
+    // type or whether a video source is a blob URL.
+    const slides = [...article.querySelectorAll('li[style]')]
+      .filter((slide) => slide.querySelector('img, video'));
+    let activeIndex = -1;
+    let bestDistance = Infinity;
+    slides.forEach((slide, index) => {
+      const rect = slide.getBoundingClientRect();
+      if (!rect.width || !rect.height || rect.bottom <= articleRect.top || rect.top >= articleRect.bottom) return;
+      const distance = Math.abs(rect.left + rect.width / 2 - centerX);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        activeIndex = index;
       }
     });
-    return best;
+    return activeIndex;
+  }
+
+  function carouselIndexFromIndicator(article, total) {
+    if (!(article instanceof Element)) return -1;
+    // Feed carousel dots are real buttons now. The active one carries this
+    // stable accessibility state even while IG keeps neighbouring slides in
+    // the DOM with misleading transforms or preloaded media.
+    const active = article.querySelector('button[aria-current="step"][aria-label]');
+    const number = active?.getAttribute('aria-label')?.match(/(\d+)(?!.*\d)/)?.[1];
+    const index = number ? Number(number) - 1 : -1;
+    return Number.isInteger(index) && index >= 0 && index < total ? index : -1;
   }
 
   function carouselIndex(article, parent) {
@@ -174,15 +214,28 @@
     if (value) return Math.max(0, Number(value) - 1);
     if (!(article instanceof Element)) return 0;
 
-    // On feed, the actual rendered image is the most reliable carousel state.
-    // Match it to the API candidate before consulting Instagram's unstable dots.
-    const visiblePath = urlPath(visibleMediaUrl(article));
-    if (visiblePath && parent?.carousel_media) {
-      const match = parent.carousel_media.findIndex((item) => {
+    const indicatorIndex = carouselIndexFromIndicator(article, parent?.carousel_media?.length || 0);
+    if (indicatorIndex >= 0) return indicatorIndex;
+
+    // Fallback for layouts without semantic carousel indicators.
+    const geometryIndex = carouselIndexFromGeometry(article);
+    if (geometryIndex >= 0) return geometryIndex;
+
+    // Fallback for layouts without carousel <li> slides.
+    const visibleSources = visibleMediaSources(article);
+    if (visibleSources.length && parent?.carousel_media) {
+      // Match each rendered source in area order. This handles a video slide
+      // whose playable source is a blob while its poster is an API thumbnail.
+      for (const rendered of visibleSources) {
+        const match = parent.carousel_media.findIndex((item) => {
         const candidates = [...(item.image_versions2?.candidates || []), ...(item.video_versions || [])];
-        return candidates.some((candidate) => urlPath(candidate.url) === visiblePath);
-      });
-      if (match >= 0) return match;
+          return candidates.some((candidate) => rendered.urls.some((url) => {
+            const path = urlPath(url);
+            return path && (urlPath(candidate.url) === path || filenameFromUrl(candidate.url) === filenameFromUrl(url));
+          }));
+        });
+        if (match >= 0) return match;
+      }
     }
 
     // Exact carousel-dot routing used by the working original extension.

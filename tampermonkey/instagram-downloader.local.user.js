@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram Downloader (Local workspace)
 // @namespace    local.instagram-downloader
-// @version      0.3.4
+// @version      0.3.7
 // @description  Download Instagram media with username-prefixed filenames.
 // @match        https://www.instagram.com/*
 // Register the S-key interceptor before Instagram's app code.
