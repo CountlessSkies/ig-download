@@ -79,12 +79,33 @@
     const appId = findAppId();
     if (!appId) throw new Error('Could not find Instagram app id');
     const apiUrl = `https://i.instagram.com/api/v1/media/${id}/info/`;
-    const response = await fetch(apiUrl, {
-      credentials: 'include',
-      headers: { Accept: '*/*', 'X-IG-App-ID': appId },
-    });
-    if (!response.ok) throw new Error(`Instagram API: ${response.status}`);
-    const item = (await response.json()).items?.[0];
+    const headers = { Accept: '*/*', 'X-IG-App-ID': appId };
+    let payload;
+    // A content script has host permissions, while a userscript does not.
+    // Let Tampermonkey make this cross-origin API request when it is available.
+    if (typeof GM_xmlhttpRequest === 'function') {
+      payload = await new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: 'GET',
+          url: apiUrl,
+          headers,
+          onload: (result) => {
+            if (result.status < 200 || result.status >= 300) {
+              reject(new Error(`Instagram API: ${result.status}`));
+              return;
+            }
+            try { resolve(JSON.parse(result.responseText)); } catch (_) { reject(new Error('Invalid Instagram API response')); }
+          },
+          onerror: () => reject(new Error('Instagram API request failed')),
+          ontimeout: () => reject(new Error('Instagram API request timed out')),
+        });
+      });
+    } else {
+      const response = await fetch(apiUrl, { credentials: 'include', headers });
+      if (!response.ok) throw new Error(`Instagram API: ${response.status}`);
+      payload = await response.json();
+    }
+    const item = payload.items?.[0];
     if (!item) throw new Error('Instagram returned no media');
     mediaInfoCache.set(id, item);
     return item;
@@ -129,10 +150,13 @@
   }
 
   function visibleMediaUrl(article) {
-    const articleRect = article.getBoundingClientRect();
+    const scope = article && typeof article.querySelectorAll === 'function' ? article : document;
+    const articleRect = typeof scope.getBoundingClientRect === 'function'
+      ? scope.getBoundingClientRect()
+      : { left: 0, right: window.innerWidth, top: 0, bottom: window.innerHeight };
     let best = null;
     let bestArea = 0;
-    article.querySelectorAll('img, video').forEach((element) => {
+    scope.querySelectorAll('img, video').forEach((element) => {
       const rect = element.getBoundingClientRect();
       const width = Math.max(0, Math.min(rect.right, articleRect.right) - Math.max(rect.left, articleRect.left));
       const height = Math.max(0, Math.min(rect.bottom, articleRect.bottom) - Math.max(rect.top, articleRect.top));
@@ -232,13 +256,28 @@
   }
 
   async function save(media) {
+    const name = makeFilename(media);
+    // GM_download bypasses page-level CORS restrictions for Instagram's CDN.
+    if (typeof GM_download === 'function') {
+      await new Promise((resolve, reject) => {
+        GM_download({
+          url: media.url,
+          name,
+          saveAs: false,
+          onload: resolve,
+          onerror: (result) => reject(new Error(`Media download: ${result.error || 'failed'}`)),
+          ontimeout: () => reject(new Error('Media download timed out')),
+        });
+      });
+      return;
+    }
     const response = await fetch(media.url, { headers: new Headers({ Origin: location.origin }), mode: 'cors' });
     if (!response.ok) throw new Error(`Media request: ${response.status}`);
     const blob = await response.blob();
     const objectUrl = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = objectUrl;
-    anchor.download = makeFilename(media);
+    anchor.download = name;
     document.body.append(anchor);
     anchor.click();
     anchor.remove();
@@ -263,7 +302,10 @@
     button.dataset.busy = '1';
     setButtonState(button, 'loading');
     try {
-      await download(button.dataset.kind, button._igArticle, button);
+      // Do not retain a custom DOM object on the button: Tampermonkey crosses
+      // an isolated-world boundary for such properties. Resolve it at click time.
+      const article = button.closest('article') || document.querySelector('article') || document;
+      await download(button.dataset.kind, article, button);
       setButtonState(button, 'done');
     } catch (error) {
       setButtonState(button, 'failed');
@@ -307,12 +349,75 @@
     return target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
   }
 
+  // A/D carousel navigation. This keeps the supplied userscript's selection
+  // rules isolated from the downloader so it cannot affect media resolution.
+  function isVisibleCarouselControl(element) {
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    const style = getComputedStyle(element);
+    return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.right > 0
+      && rect.top < window.innerHeight && rect.left < window.innerWidth
+      && style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+  }
+
+  function carouselControlScore(element, side) {
+    const rect = element.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    if (rect.width < 20 || rect.height < 20 || rect.width > 120 || rect.height > 120) return Infinity;
+    if (y < vh * 0.15 || y > vh * 0.85) return Infinity;
+    if (side === 'right' && (x <= vw / 2 || x > vw - 20)) return Infinity;
+    if (side === 'left' && (x >= vw / 2 || x < 80)) return Infinity;
+    const horizontalTarget = side === 'left' ? vw * 0.30 : vw * 0.70;
+    return Math.abs(y - vh / 2) + Math.abs(x - horizontalTarget) * 0.15;
+  }
+
+  function pickCarouselControl(candidates, side) {
+    return candidates
+      .filter(isVisibleCarouselControl)
+      .map((element) => ({ element, score: carouselControlScore(element, side) }))
+      .filter(({ score }) => Number.isFinite(score))
+      .sort((left, right) => left.score - right.score)[0]?.element || null;
+  }
+
+  function clickCarouselControl(side) {
+    const isNext = side === 'right';
+    const semanticSelector = isNext
+      ? 'button[aria-label="Next"]'
+      : 'button[aria-label="Previous"], button[aria-label="Prev"]';
+    let button = pickCarouselControl([...document.querySelectorAll(semanticSelector)], side);
+    if (!button) {
+      const label = isNext ? 'next' : 'previous';
+      const candidates = [...document.querySelectorAll('button')].filter((element) => {
+        const aria = (element.getAttribute('aria-label') || '').toLowerCase();
+        const title = (element.getAttribute('title') || '').toLowerCase();
+        if (isNext) return aria.includes(label) || title.includes(label);
+        return !(aria.includes('next') || title.includes('next'));
+      });
+      button = pickCarouselControl(candidates, side);
+    }
+    if (!button && !isNext) button = document.querySelector('button._afxv._al46._al47');
+    if (!button) return false;
+    button.click();
+    return true;
+  }
+
+  function interceptCarouselHotkeys(event) {
+    if (event.ctrlKey || event.altKey || event.metaKey || event.repeat || isTypingTarget(event.target)) return;
+    const key = event.key.toLowerCase();
+    const side = key === 'a' ? 'left' : key === 'd' ? 'right' : null;
+    if (!side || !clickCarouselControl(side)) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+
   function addButton(container, kind, article) {
     if (!(container instanceof HTMLElement) || container.querySelector(`.${CLASS}[data-kind="${kind}"]`)) return;
     const button = document.createElement('a');
     button.className = CLASS;
     button.dataset.kind = kind;
-    button._igArticle = article;
     button.innerHTML = ICON;
     button.title = `Download ${kind}`;
     button.setAttribute('style', 'cursor:pointer;padding:7px;color:#0095f6;background:transparent;border-radius:8px;position:relative;display:inline-flex;z-index:999;line-height:0;transition:color .18s ease,transform .18s ease');
@@ -358,13 +463,21 @@
     refreshHotkeyIndicator();
   }
 
-  document.addEventListener('keydown', (event) => {
+  function interceptDownloadHotkey(event) {
     if (event.key.toLowerCase() !== 's' || event.ctrlKey || event.altKey || event.metaKey || event.repeat || isTypingTarget(event.target)) return;
     const button = nearestVisibleButton();
     if (!button) return;
     event.preventDefault();
-    startDownload(button);
+    event.stopImmediatePropagation();
+    // Start once on keydown, but also suppress the matching keypress/keyup:
+    // Instagram may bind its Save action to a different keyboard event.
+    if (event.type === 'keydown') startDownload(button);
+  }
+
+  ['keydown', 'keypress', 'keyup'].forEach((type) => {
+    window.addEventListener(type, interceptDownloadHotkey, true);
   });
+  window.addEventListener('keydown', interceptCarouselHotkeys, true);
 
   window.addEventListener('scroll', refreshHotkeyIndicator, { passive: true });
   window.addEventListener('resize', refreshHotkeyIndicator, { passive: true });
