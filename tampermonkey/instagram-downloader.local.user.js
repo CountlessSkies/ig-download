@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Instagram Downloader (Local workspace)
 // @namespace    local.instagram-downloader
-// @version      0.3.7
+// @version      0.3.8
 // @description  Download Instagram media with username-prefixed filenames.
 // @match        https://www.instagram.com/*
 // @run-at       document-start

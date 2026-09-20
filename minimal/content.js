@@ -310,23 +310,29 @@
 
   async function save(media) {
     const name = makeFilename(media);
-    // GM_download bypasses page-level CORS restrictions for Instagram's CDN.
-    if (typeof GM_download === 'function') {
-      await new Promise((resolve, reject) => {
-        GM_download({
+    // This mirrors the pre-cleanup extension: obtain the media bytes, then
+    // download a Blob URL so `anchor.download` is the filename authority.
+    // Tampermonkey's XHR supplies the cross-origin access formerly provided by
+    // the extension's host permissions.
+    const blob = typeof GM_xmlhttpRequest === 'function'
+      ? await new Promise((resolve, reject) => {
+        GM_xmlhttpRequest({
+          method: 'GET',
           url: media.url,
-          name,
-          saveAs: false,
-          onload: resolve,
-          onerror: (result) => reject(new Error(`Media download: ${result.error || 'failed'}`)),
-          ontimeout: () => reject(new Error('Media download timed out')),
+          responseType: 'blob',
+          onload: (result) => {
+            if (result.status >= 200 && result.status < 300 && result.response && typeof result.response.size === 'number') resolve(result.response);
+            else reject(new Error(`Media request: ${result.status}`));
+          },
+          onerror: () => reject(new Error('Media request failed')),
+          ontimeout: () => reject(new Error('Media request timed out')),
         });
-      });
-      return;
-    }
-    const response = await fetch(media.url, { headers: new Headers({ Origin: location.origin }), mode: 'cors' });
-    if (!response.ok) throw new Error(`Media request: ${response.status}`);
-    const blob = await response.blob();
+      })
+      : await (async () => {
+        const response = await fetch(media.url, { headers: new Headers({ Origin: location.origin }), mode: 'cors' });
+        if (!response.ok) throw new Error(`Media request: ${response.status}`);
+        return response.blob();
+      })();
     const objectUrl = URL.createObjectURL(blob);
     const anchor = document.createElement('a');
     anchor.href = objectUrl;
